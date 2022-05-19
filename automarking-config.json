@@ -1,0 +1,5 @@
+{
+    "server": true,
+    "coverage": true,
+    "lint": true
+}
