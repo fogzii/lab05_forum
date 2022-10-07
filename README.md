@@ -307,8 +307,8 @@ To test your code, you will need to use two different terminals:
 
     const timeSent = ... // get value from a post or comment's timeSent
     expect(timeSent).toBeGreaterThanOrEqual(expectedTimeSent);
-    // Allow for 1 second delay
-    expect(timeSent).toBeLessThan(expectedTimeSent + 1);
+    // Allow for 2 second delay
+    expect(timeSent).toBeLessThanOrEqual(expectedTimeSent + 2);
     ```
     Writing tests for this could be time-consuming, so you may not want to check the timestamp for every test.
 
