@@ -32,7 +32,7 @@ describe('(server) server', () => {
         test('successful return - 1 post', () => {
             const expectedTimeP1 = Math.floor(Date.now() / 1000);
             const p1 = requestCreate('Zero Two', 'Darling', 'DARLING in the FRANXX');
-            const timeP1 = requestList().posts[0].timesent;
+            const timeP1 = requestList().posts[0].timeSent;
             expect(timeP1).toBeGreaterThanOrEqual(expectedTimeP1);
             expect(timeP1).toBeLessThanOrEqual(expectedTimeP1 + 2);
             
@@ -50,7 +50,7 @@ describe('(server) server', () => {
         test('successful return - multiple posts', () => {
             const expectedTimeP1 = Math.floor(Date.now() / 1000);
             const p1 = requestCreate('Zero Two', 'Darling', 'DARLING in the FRANXX');
-            const timeP1 = requestList().posts.timesent;
+            const timeP1 = requestList().posts[0].timeSent;
             expect(timeP1).toBeGreaterThanOrEqual(expectedTimeP1);
             expect(timeP1).toBeLessThanOrEqual(expectedTimeP1 + 2);
 

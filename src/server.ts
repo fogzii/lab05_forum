@@ -6,6 +6,12 @@ import morgan from 'morgan';
 
 // Importing the example implementation for echo in echo.js
 import { echo } from './echo';
+
+import { create } from './create';
+import { comment } from './comment';
+import { view } from './view';
+import { list } from './list';
+import { clear } from './clear';
 import { port, url } from './config.json';
 
 const PORT: number = parseInt(process.env.PORT || port);
@@ -43,12 +49,31 @@ app.post('/post/create', (req: Request, res: Response) => {
   // For PUT/POST requests, data is transfered through the JSON body
   const { sender, title, content } = req.body;
 
-  // TODO: Implement
-  console.log('Do something with:', sender, title, content);
-  res.json({ postId: -99999 });
+  console.log('Post being created with the following information:', sender, title, content);
+  res.json(create(sender, title, content));
 });
 
-// TODO: Remaining routes
+app.post('/post/comment', (req: Request, res: Response) => {
+  console.log('Comment being created with the following information:', req.body.postId, req.body.sender, req.body.comment);
+  res.json(comment(req.body.postId, req.body.sender, req.body.comment));
+});
+
+app.get('/post/view', (req: Request, res: Response) => {
+  const postId = parseInt(req.query.postId as string);
+
+  console.log('Viewing the post with the following id:', postId);
+  res.json(view(postId));
+});
+
+app.get('/posts/list', (req: Request, res: Response) => {
+  console.log('Listing all posts');
+  res.json(list());
+});
+
+app.delete('/clear', (req: Request, res: Response) => {
+  console.log('Clearing all posts');
+  res.json(clear());
+});
 
 /**
  * Start server

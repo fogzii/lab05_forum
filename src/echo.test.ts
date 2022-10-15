@@ -3,12 +3,6 @@ import request from 'sync-request';
 import { port, url } from './config.json';
 const SERVER_URL = `${url}:${port}`;
 
-test('Remove this test and uncomment the tests below', () => {
-  expect(1 + 1).toStrictEqual(2);
-});
-
-/*
-
 // We're only importing the SERVER_URL from config.
 // No functions that you've written should be imported,
 // as all tests should be done through HTTP requests.
@@ -59,4 +53,3 @@ test('failure, echo echo', () => {
 // It may also be possible to extend these helper/wrapper functions to work
 // for different methods, routes, etc.
 
-*/
