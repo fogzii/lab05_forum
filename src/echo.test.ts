@@ -52,4 +52,3 @@ test('failure, echo echo', () => {
 
 // It may also be possible to extend these helper/wrapper functions to work
 // for different methods, routes, etc.
-

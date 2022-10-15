@@ -1,7 +1,4 @@
-import { getData } from './dataStore'
-
-type error = { error: string }
-type posts = { posts: post[] }
+import { getData } from './dataStore';
 
 type post = {
     postId: number,
@@ -10,20 +7,23 @@ type post = {
     timeSent: number,
 }
 
-export function list(): posts | error {
-    let data = getData();
+type error = { error: string }
+type posts = { posts: post[] }
 
-    const posts: post[] = [];
-    for (const post of data.posts) {
-        posts.push(
-            {
-                postId: post.postId,
-                sender: post.sender,
-                title: post.title,
-                timeSent: post.timeSent,
-            }
-        );
-    }
-    
-    return { posts: posts };
+export function list(): posts | error {
+  const data = getData();
+
+  const posts: post[] = [];
+  for (const post of data.posts) {
+    posts.push(
+      {
+        postId: post.postId,
+        sender: post.sender,
+        title: post.title,
+        timeSent: post.timeSent,
+      }
+    );
+  }
+
+  return { posts: posts };
 }

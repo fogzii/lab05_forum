@@ -1,5 +1,8 @@
-export type dataBase = {
-    posts: post[],
+type comment = {
+    commentId: number,
+    sender: string,
+    comment: string,
+    timeSent: number,
 }
 
 export type post = {
@@ -11,25 +14,22 @@ export type post = {
     comments: comment[],
 }
 
-type comment = {
-    commentId: number,
-    sender: string,
-    comment: string,
-    timeSent: number,
+export type dataBase = {
+    posts: post[],
 }
 
 let data: dataBase = {
-    posts: [],
+  posts: [],
 };
-  
+
 // Use get() to access the data
 function getData(): dataBase {
-    return data;
+  return data;
 }
 
 // Use set(newData) to pass in the entire data object, with modifications made
 function setData(newData: dataBase) {
-    data = newData;
+  data = newData;
 }
 
 export { getData, setData };

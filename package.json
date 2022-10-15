@@ -10,6 +10,7 @@
     "ts-node-dev": "ts-node-dev",
     "tsc": "tsc --noEmit",
     "lint": "eslint src/**.ts",
+    "lint-fix": "eslint --fix src/**.ts",
     "start": "ts-node src/server.ts",
     "start-dev": "ts-node-dev src/server.ts"
   },
